@@ -110,7 +110,7 @@ func ghRelease(tag, target string, delete bool, files []string) error {
 	args := []string{"release", "create", "--target", target, tag}
 	args = append(args, files...)
 	if _, err := execCmd("gh", args...); err != nil {
-		return fmt.Errorf("gh release create (%#v): %w", args, err)
+		return fmt.Errorf("gh release create: %w", err)
 	}
 
 	return nil
