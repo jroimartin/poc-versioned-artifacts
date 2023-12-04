@@ -81,9 +81,9 @@ func main() {
 		version string
 		delete  bool
 	}{
-		{version, false},
-		{semver.MajorMinor(version), true},
 		{semver.Major(version), true},
+		{semver.MajorMinor(version), true},
+		{version, false},
 	} {
 		tag := dir + "/" + arg.version
 		if err := ghRelease(tag, hash, arg.delete, files); err != nil {
